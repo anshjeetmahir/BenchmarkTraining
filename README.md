@@ -48,3 +48,22 @@ ii) After deleting all the tasks:
 
 -This folder basically contains a "index.html" file which shows a simple example of the concept called Closure in Javascript.
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Object Oriented Programing (OOPS) in JavaScript
+
+-Implemented
+i) Encapsulayion
+ii) Inheritance
+iii) Polymorphism
+iv) Abstraction
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Drag-Drop-ToDo-App
+
+-Implemented Drag and Drop in To-Do App List items:
+
+Video:
+
