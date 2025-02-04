@@ -1,0 +1,47 @@
+.container {
+    padding: 0;
+    width: 800px;
+    height: 500px;
+    margin: 100px auto;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.images {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.prev {
+    top: 50%;
+    transform: translateY(-180%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    left: 10px;
+}
+
+.next {
+    top: 50%;
+    transform: translateY(-180%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    right: 10px;
+}
