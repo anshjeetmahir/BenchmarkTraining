@@ -83,3 +83,15 @@ https://github.com/user-attachments/assets/5f74c774-adb0-467c-bdc0-1f259c2f7d9d
 https://github.com/user-attachments/assets/e4ea0926-c775-4b1c-bead-b911fd2698b5
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# To-Do App using API
+
+- Implemented GET,POST,DELETE functionality from a dummy api in To-Do App
+
+  Video:
+
+
+https://github.com/user-attachments/assets/4abd41a4-3e3a-40c2-b291-14b8861f67f1
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
