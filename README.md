@@ -94,4 +94,19 @@ https://github.com/user-attachments/assets/e4ea0926-c775-4b1c-bead-b911fd2698b5
 https://github.com/user-attachments/assets/4abd41a4-3e3a-40c2-b291-14b8861f67f1
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
+
+# Assignment 4
+
+- In assignment3.js, I have simulated memory leak and handeled it using an array. I am attaching the differnce in memory sizes before and after cleaning the memory.
+
+# Screenshots
+
+- Before cleaning the Memory:
+
+  	![Screenshot 2025-02-06 194115](https://github.com/user-attachments/assets/1e36938d-2bbf-4154-90df-89b7c2a62656)
+
+- After cleaning the Memory:
+
+  	![Screenshot 2025-02-06 194204](https://github.com/user-attachments/assets/71ef1db5-17c7-4dc3-ab1d-c8e5b66d6737)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
