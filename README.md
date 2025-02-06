@@ -54,10 +54,10 @@ ii) After deleting all the tasks:
 # Object Oriented Programing (OOPS) in JavaScript
 
 -Implemented
-i) Encapsulayion
-ii) Inheritance
-iii) Polymorphism
-iv) Abstraction
+-i) Encapsulayion
+-ii) Inheritance
+-iii) Polymorphism
+-iv) Abstraction
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
