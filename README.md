@@ -110,3 +110,20 @@ https://github.com/user-attachments/assets/4abd41a4-3e3a-40c2-b291-14b8861f67f1
   	![Screenshot 2025-02-06 194204](https://github.com/user-attachments/assets/71ef1db5-17c7-4dc3-ab1d-c8e5b66d6737)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Assignment 5
+
+- Created my own E-Commerce website using fakestore.api and created pages :
+  - Login
+  - Home
+  - Admin
+  - Cart
+ 
+# Video Demo
+
+	
+
+https://github.com/user-attachments/assets/4a88691a-6cba-4397-a631-d553c5674c2c
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
