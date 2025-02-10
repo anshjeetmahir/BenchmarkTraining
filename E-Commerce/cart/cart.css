@@ -1,0 +1,17 @@
+.card {
+    border-radius: 10px;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+}
+
+.cart-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    margin: 5px;
+}

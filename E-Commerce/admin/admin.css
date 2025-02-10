@@ -1,0 +1,8 @@
+.card {
+    border-radius: 10px;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+}
