@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Expense Tracker</h1>
+        <h3 class="mt-5 mb-4">Add New Expense</h3>
+        <form id="expense-form" class="mb-3 mt-5 text-center">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="number" id="amount" class="form-control" placeholder="Amount" required>
+                </div>
+                <div class="col-md-3">
+                    <select id="category" class="form-select" required>
+                        <option disabled selected hidden>Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="date" placeholder="Enter Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="description" class="form-control" placeholder="Description" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-5 w-50">Add Expense</button>
+        </form>
+
+        <h3 class="mt-5 mb-4">Filter Expense</h3>
+
+        <div class="row mb-3 text-center">
+            <div class="col-md-6">
+                <select id="filter-category" class="form-select">
+                    <option disabled selected hidden value="#">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="filter-start-date" placeholder="Starting Date" onfocus="(this.type='date')"
+                    onblur="(this.type='text')" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="filter-end-date" placeholder="Ending Date" onfocus="(this.type='date')"
+                    onblur="(this.type='text')" class="form-control">
+            </div>
+            <div>
+                <button id="filter-btn" class="btn btn-space btn-warning w-50 mt-4 mb-3">Filter</button>
+                <button id="filter-reset" class="btn btn-space btn-danger">&#8634;</button>
+            </div>
+        </div>
+        <h3 class="mt-5 mb-4">Expense History</h3>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="expense-list"></tbody>
+        </table>
+
+        <div class="text-center">
+            <button id="clear-btn" class="btn btn-danger mt-4 mb-3">Clear History</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
