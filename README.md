@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/e03410c5-72f1-4266-bbed-3a36fda77e35
 # To-Do App
 
 - In this To-Do App we can :
@@ -138,3 +140,22 @@ https://github.com/user-attachments/assets/4a88691a-6cba-4397-a631-d553c5674c2c
 https://github.com/user-attachments/assets/73220f46-c305-4a78-a648-fdfe47c8260e
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Assignment 8
+
+# Expense Tracker
+
+- Created an Expense Tracker to :
+	- Add new Expense
+ 	- Give every expense a category, date and description 
+   	- View Expense History
+   	- Filter expenses on category
+   	- Filter expenses on date range
+
+# Video Demo
+
+
+https://github.com/user-attachments/assets/2f4c47ac-3e19-4fb7-b9af-1b5336ce83a0
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
