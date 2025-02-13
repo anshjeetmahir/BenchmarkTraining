@@ -1,5 +1,4 @@
 
-https://github.com/user-attachments/assets/e03410c5-72f1-4266-bbed-3a36fda77e35
 # To-Do App
 
 - In this To-Do App we can :
