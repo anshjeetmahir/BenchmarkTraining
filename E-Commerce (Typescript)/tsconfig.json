@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2015", // Supports async/await, Promise, and Symbol
+    "module": "ESNext", // Use ES Modules
+    "lib": [
+      "DOM",
+      "ES2017",
+      "ES2021",
+      "DOM.Iterable"
+    ],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true, // Ignore node_modules type issues
+    "outDir": "./dist", // Output JS files here
+    "rootDir": "./src", // TypeScript source files
+    "moduleResolution": "Node",
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  // "scripts": {
+  //   "test": "echo \"Error: no test specified\" && exit 1",
+  //   "dev": "parcel index.html",
+  //   "build": "parcel build index.html"
+  // }
+}
