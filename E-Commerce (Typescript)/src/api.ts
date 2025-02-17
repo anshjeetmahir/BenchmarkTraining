@@ -1,34 +1,14 @@
-import axios from "axios";
+interface IpostProduct {
 
+    title: string;
+    price: number;
+    category: string;
+    image: string;
+}
 
-
-
-const fakeStoreAPI = axios.create({
-    baseURL: "https://fakestoreapi.com",
-});
-
-
-const get = async (url: string) => {
-    const response = await fakeStoreAPI.get(url);
-    return response.data;
+declare const axios: {
+    get<T>(url: string): Promise<{ data: T }>;
+    post<T>(url: string, data?: IpostProduct): Promise<{ data: T }>;
+    put<T>(url: string, data?: IpostProduct): Promise<{ data: T }>;
+    delete<T>(url: string): Promise<{ data: T }>;
 };
-
-const post = async (url: string, data?: any) => {
-    const response = await fakeStoreAPI.post(url, data);
-    return response.data;
-};
-
-const put = async (url: string, data?: any) => {
-    const response = await fakeStoreAPI.put(url, data);
-    return response.data;
-};
-
-
-
-const del = async (url: string) => {
-    const response = await fakeStoreAPI.delete(url);
-    return response.data;
-};
-
-
-export { get, post, put, del };

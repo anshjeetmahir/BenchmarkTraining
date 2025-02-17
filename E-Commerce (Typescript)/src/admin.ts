@@ -1,12 +1,13 @@
-import { get, put, del, post } from "./api";
 
-interface Product {
+
+interface IProduct {
     id: number;
     title: string;
     price: number;
     category: string;
     image: string;
 }
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,14 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadProducts(): Promise<void> {
         try {
-            const response = await get("https://fakestoreapi.com/products");
+            const response = await axios.get<IProduct[]>("https://fakestoreapi.com/products");
             displayProducts(response.data);
         } catch (error) {
             console.error("Error loading products!", error);
         }
     }
 
-    function displayProducts(products: Product[]): void {
+    function displayProducts(products: IProduct[]): void {
         productList.innerHTML = "";
         products.forEach(product => {
             const productCard = document.createElement("div");
@@ -58,22 +59,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function saveProduct(): Promise<void> {
         const productId = productIdInput.value;
-        const name = nameInput.value;
+        const title = nameInput.value;
         const category = categoryInput.value;
         const image = imageInput.value;
         const price = parseFloat(priceInput.value);
 
-        if (!name || !category || !image || isNaN(price)) {
+        if (!title || !category || !image || isNaN(price)) {
             alert("All fields are required!");
             return;
         }
 
         try {
+            const products: IpostProduct = { title, price, category, image };
             if (productId) {
-                await put(`https://fakestoreapi.com/products/${productId}`, { title: name, category, image, price });
+                await axios.put<IProduct>(`https://fakestoreapi.com/products/${productId}`, products);
                 alert("Product updated successfully!");
             } else {
-                await post("https://fakestoreapi.com/products", { title: name, category, image, price });
+                await axios.post<IProduct>("https://fakestoreapi.com/products", products);
                 alert("Product added successfully!");
             }
             resetForm();
@@ -86,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function deleteProduct(productId: string): Promise<void> {
         if (!confirm("Are you sure you want to delete this product?")) return;
         try {
-            await del(`https://fakestoreapi.com/products/${productId}`);
+            await axios.delete<IProduct>(`https://fakestoreapi.com/products/${productId}`);
             alert("Product deleted successfully!");
             loadProducts();
         } catch (error) {
@@ -96,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function openEditForm(productId: string): Promise<void> {
         try {
-            const response = await get(`https://fakestoreapi.com/products/${productId}`);
+            const response = await axios.get<IProduct>(`https://fakestoreapi.com/products/${productId}`);
             const product = response.data;
 
             productIdInput.value = product.id.toString();

@@ -56,21 +56,22 @@ document.addEventListener("DOMContentLoaded", () => {
     function saveProduct() {
         return __awaiter(this, void 0, void 0, function* () {
             const productId = productIdInput.value;
-            const name = nameInput.value;
+            const title = nameInput.value;
             const category = categoryInput.value;
             const image = imageInput.value;
             const price = parseFloat(priceInput.value);
-            if (!name || !category || !image || isNaN(price)) {
+            if (!title || !category || !image || isNaN(price)) {
                 alert("All fields are required!");
                 return;
             }
             try {
+                const products = { title, price, category, image };
                 if (productId) {
-                    yield axios.put(`https://fakestoreapi.com/products/${productId}`, { title: name, category, image, price });
+                    yield axios.put(`https://fakestoreapi.com/products/${productId}`, products);
                     alert("Product updated successfully!");
                 }
                 else {
-                    yield axios.post("https://fakestoreapi.com/products", { title: name, category, image, price });
+                    yield axios.post("https://fakestoreapi.com/products", products);
                     alert("Product added successfully!");
                 }
                 resetForm();

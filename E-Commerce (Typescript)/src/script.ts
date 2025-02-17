@@ -1,6 +1,6 @@
-import { get } from "./api";
 
-interface Product {
+
+interface IProduct {
     id: number;
     title: string;
     price: number;
@@ -10,7 +10,9 @@ interface Product {
 
 
 
-
+interface ICartItem extends IProduct {
+    quantity: number;
+}
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -21,18 +23,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     username.textContent = `USER : ${localStorage.getItem('user')?.toUpperCase().replaceAll('"', '') || "GUEST"}`;
 
 
-    interface CartItem extends Product {
-        quantity: number;
-    }
+
 
     try {
 
-        const response = await get("https://fakestoreapi.com/products");
-        const products: Product[] = response.data;
+        const response = await axios.get<IProduct[]>("https://fakestoreapi.com/products");
+        const products: IProduct[] = response.data;
 
 
-        const categoryResponse = await get("https://fakestoreapi.com/products/categories");
-        const categories: string[] = categoryResponse.data;
+        const categoryResponse = await axios.get<IProduct['category'][]>("https://fakestoreapi.com/products/categories");
+        const categories: IProduct['category'][] = categoryResponse.data;
 
         categories.forEach(category => {
             const option = document.createElement("option");
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
 
-        function displayProducts(filteredProducts: Product[]): void {
+        function displayProducts(filteredProducts: IProduct[]): void {
             productList.innerHTML = "";
             filteredProducts.forEach(product => {
                 const productCard = document.createElement("div");
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.querySelectorAll(".add-to-cart").forEach(button => {
                 button.addEventListener("click", (e) => {
                     const target = e.target as HTMLButtonElement;
-                    const product: CartItem = {
+                    const product: ICartItem = {
                         id: parseInt(target.dataset.id || "0"),
                         title: target.dataset.name || "",
                         price: parseFloat(target.dataset.price || "0"),
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
         categoryFilter.addEventListener("change", () => {
-            const selectedCategory: Product["category"] = categoryFilter.value;
+            const selectedCategory: IProduct["category"] = categoryFilter.value;
             const filteredProducts = selectedCategory
                 ? products.filter(p => p.category === selectedCategory)
                 : products;
@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
 
-        function addToCart(product: CartItem): void {
-            const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+        function addToCart(product: ICartItem): void {
+            const cart: ICartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
 
             const existingItem = cart.find(item => item.id === product.id);
             if (existingItem) {
@@ -111,3 +111,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Error fetching products", error);
     }
 });
+
+
+
+
+
+
+
+

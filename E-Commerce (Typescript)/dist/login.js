@@ -19,20 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = passwordInput.value;
         try {
             const response = yield axios.get("https://fakestoreapi.com/users");
-            const user = response.data.find(user => user.username === username && user.password === password);
-            if (user) {
-                localStorage.setItem("user", JSON.stringify(user.name.firstname));
-                alert("Login successful");
-                window.location.href = "../index.html";
-            }
-            else {
+            let flag = 0;
+            response.data.forEach((curr) => {
+                if (curr.username === username && curr.password === password) {
+                    localStorage.setItem("user", JSON.stringify(curr.name.firstname));
+                    alert("Login successful");
+                    window.location.href = "../index.html";
+                    ++flag;
+                }
+            });
+            if (flag === 0) {
                 usernameInput.value = "";
                 passwordInput.value = "";
-                throw new Error("Incorrect UserID or Password!");
+                throw new Error("Incorrect UserID or Password!!");
             }
         }
         catch (err) {
-            alert("Invalid credentials!");
+            alert("Invalid credentials!!");
             console.error("Login error", err);
         }
     }));

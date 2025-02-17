@@ -1,6 +1,5 @@
-import axios from "axios";
 
-interface User {
+interface IUser {
     username: string;
     password: string;
     name: {
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
-            const response = await axios.get<User[]>("https://fakestoreapi.com/users");
+            const response = await axios.get<IUser[]>("https://fakestoreapi.com/users");
 
             let flag = 0;
 
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (curr.username === username && curr.password === password) {
                     localStorage.setItem("user", JSON.stringify(curr.name.firstname));
                     alert("Login successful");
-                    window.location.href = "./home/home.html";
+                    window.location.href = "../index.html";
                     ++flag;
                 }
             });

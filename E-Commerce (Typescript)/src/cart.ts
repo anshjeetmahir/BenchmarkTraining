@@ -1,4 +1,4 @@
-interface CartItem {
+interface ICartItem {
     id: number;
     title: string;
     price: number;
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkoutButton = document.getElementById("checkout") as HTMLButtonElement;
 
     function loadCart(): void {
-        const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+        const cart: ICartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
         cartItemsContainer.innerHTML = "";
         let total = 0;
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateQuantity(index: number, change: number): void {
-        const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+        const cart: ICartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
         if (cart[index]) {
             cart[index].quantity += change;
             if (cart[index].quantity <= 0) {
@@ -64,14 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function removeItem(index: number): void {
-        const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+        const cart: ICartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
         cart.splice(index, 1);
         localStorage.setItem("cart", JSON.stringify(cart));
         loadCart();
     }
 
     checkoutButton.addEventListener("click", () => {
-        const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+        const cart: ICartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
         if (cart.length === 0) {
             alert("Add items to cart to checkout!");
         } else {
