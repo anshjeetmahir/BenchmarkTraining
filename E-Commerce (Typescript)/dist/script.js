@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
     const username = document.getElementById("username");
     username.textContent = `USER : ${((_a = localStorage.getItem('user')) === null || _a === void 0 ? void 0 : _a.toUpperCase().replaceAll('"', '')) || "GUEST"}`;
     try {
-        // Fetch products
+
         const response = yield axios.get("https://fakestoreapi.com/products");
         const products = response.data;
-        // Fetch categories
+
         const categoryResponse = yield axios.get("https://fakestoreapi.com/products/categories");
         const categories = categoryResponse.data;
         categories.forEach(category => {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
             option.textContent = category;
             categoryFilter.appendChild(option);
         });
-        // Display products
+
         function displayProducts(filteredProducts) {
             productList.innerHTML = "";
             filteredProducts.forEach(product => {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
                     </div>`;
                 productList.appendChild(productCard);
             });
-            // Add event listeners to "Add to Cart" buttons
+
             document.querySelectorAll(".add-to-cart").forEach(button => {
                 button.addEventListener("click", (e) => {
                     const target = e.target;
@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
                 });
             });
         }
-        // Initial product display
+
         displayProducts(products);
-        // Filter products by category
+
         categoryFilter.addEventListener("change", () => {
             const selectedCategory = categoryFilter.value;
             const filteredProducts = selectedCategory
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
                 : products;
             displayProducts(filteredProducts);
         });
-        // Add to cart
+
         function addToCart(product) {
             const cart = JSON.parse(localStorage.getItem("cart") || "[]");
             const existingItem = cart.find(item => item.id === product.id);

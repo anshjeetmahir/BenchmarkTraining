@@ -9,11 +9,7 @@ interface Product {
 }
 
 
-// declare const axios: {
-//     get<T = any>(url: string): Promise<{ data: T }>;
-//     post<T = any>(url: string, data?: any): Promise<{ data: T }>; put<T = any>(url: string, data?: any): Promise<{ data: T }>;
-//     delete<T = any>(url: string): Promise<{ data: T }>;
-// };
+
 
 
 
@@ -30,11 +26,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-        // Fetch products
+
         const response = await get("https://fakestoreapi.com/products");
         const products: Product[] = response.data;
 
-        // Fetch categories
+
         const categoryResponse = await get("https://fakestoreapi.com/products/categories");
         const categories: string[] = categoryResponse.data;
 
@@ -45,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             categoryFilter.appendChild(option);
         });
 
-        // Display products
+
         function displayProducts(filteredProducts: Product[]): void {
             productList.innerHTML = "";
             filteredProducts.forEach(product => {
@@ -69,7 +65,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 productList.appendChild(productCard);
             });
 
-            // Add event listeners to "Add to Cart" buttons
             document.querySelectorAll(".add-to-cart").forEach(button => {
                 button.addEventListener("click", (e) => {
                     const target = e.target as HTMLButtonElement;
@@ -86,10 +81,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
 
-        // Initial product display
         displayProducts(products);
 
-        // Filter products by category
+
         categoryFilter.addEventListener("change", () => {
             const selectedCategory: Product["category"] = categoryFilter.value;
             const filteredProducts = selectedCategory
@@ -98,7 +92,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             displayProducts(filteredProducts);
         });
 
-        // Add to cart
+
         function addToCart(product: CartItem): void {
             const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
 

@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         cartTotal.textContent = total.toFixed(2);
 
-        // Event listeners for increase, decrease, and remove buttons
         document.querySelectorAll<HTMLButtonElement>(".increase").forEach(button => {
             button.addEventListener("click", () => updateQuantity(parseInt(button.dataset.index || "0"), 1));
         });

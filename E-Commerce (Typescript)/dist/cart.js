@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cartItemsContainer.appendChild(itemCard);
         });
         cartTotal.textContent = total.toFixed(2);
-        // Event listeners for increase, decrease, and remove buttons
+
         document.querySelectorAll(".increase").forEach(button => {
             button.addEventListener("click", () => updateQuantity(parseInt(button.dataset.index || "0"), 1));
         });

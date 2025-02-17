@@ -23,12 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = passwordInput.value;
 
         try {
-            // Fetch all users
+
             const response = await axios.get<User[]>("https://fakestoreapi.com/users");
 
             let flag = 0;
 
-            // Loop through users to find a match
             response.data.forEach((curr) => {
                 if (curr.username === username && curr.password === password) {
                     localStorage.setItem("user", JSON.stringify(curr.name.firstname));
@@ -38,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            // If no match found, reset input fields and throw an error
+
             if (flag === 0) {
                 usernameInput.value = "";
                 passwordInput.value = "";

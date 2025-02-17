@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2015", // Supports async/await, Promise, and Symbol
-    "module": "ESNext", // Use ES Modules
+    "target": "ES2015",
+    "module": "ESNext",
     "lib": [
       "DOM",
       "ES2017",
@@ -10,9 +10,9 @@
     ],
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true, // Ignore node_modules type issues
-    "outDir": "./dist", // Output JS files here
-    "rootDir": "./src", // TypeScript source files
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "moduleResolution": "Node",
     "forceConsistentCasingInFileNames": true
   },
@@ -20,9 +20,4 @@
     "node_modules",
     "dist"
   ],
-  // "scripts": {
-  //   "test": "echo \"Error: no test specified\" && exit 1",
-  //   "dev": "parcel index.html",
-  //   "build": "parcel build index.html"
-  // }
 }
