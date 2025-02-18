@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import './todo.css'
 
-interface Todo {
+interface ITodo {
     id: number;
     text: string;
 }
@@ -19,7 +19,7 @@ const TodoList = () => {
         return savedTodos.length > 0 ? savedTodos[savedTodos.length - 1].id + 1 : 1;
     }
 
-    const [todos, setTodos] = useState<Todo[]>(initialState);
+    const [todos, setTodos] = useState<ITodo[]>(initialState);
     const [input, setInput] = useState<string>("");
     const [editId, setEditId] = useState<number | null>(null);
     const [nextId, setNextId] = useState<number>(initialIdState);
