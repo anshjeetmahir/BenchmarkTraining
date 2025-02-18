@@ -3,6 +3,7 @@
   - Add new task
   - Edit existing task
   - Delete a task
+  - Delete all tasks
 
 
 # Demo Video:
