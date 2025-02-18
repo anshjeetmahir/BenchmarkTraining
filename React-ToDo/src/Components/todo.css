@@ -1,0 +1,62 @@
+input {
+    border-radius: 8px;
+    width: 50vw;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: rgba(243, 237, 237, 0.938);
+    transition: border-color 0.25s;
+    margin-right: 10px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+input:hover {
+    border-color: white;
+}
+
+li {
+    list-style-type: none;
+    background-color: rgb(183, 177, 177);
+    margin-top: 15px;
+    border-radius: 5px;
+    width: 70vw;
+    align-items: center;
+    display: flex;
+    color: black;
+    padding: 10px;
+
+}
+
+p {
+    margin: 10px;
+    flex-grow: 1;
+}
+
+.edit-btn {
+    background-color: rgb(100, 100, 200);
+    margin-left: 5px;
+    margin-bottom: 5px;
+
+}
+
+.del-btn {
+    background-color: rgb(192, 63, 63);
+    margin-left: 5px;
+
+}
+
+.add-btn {
+    background-color: green;
+}
+
+ul p {
+
+    word-break: break-word;
+}
+
+.list {
+    text-align: center;
+}
