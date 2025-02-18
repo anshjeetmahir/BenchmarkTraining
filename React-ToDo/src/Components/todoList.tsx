@@ -31,6 +31,8 @@ const TodoList = () => {
         }
     }, [todos]);
 
+
+
     const addTodo = () => {
         if (!input) return;
 
@@ -56,6 +58,11 @@ const TodoList = () => {
         }
     };
 
+    const clearAllTodos = () => {
+        localStorage.clear();
+        setTodos([]);
+    };
+
     return (
         <div >
 
@@ -65,10 +72,14 @@ const TodoList = () => {
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
+                    placeholder="Enter New Task.."
                 />
 
                 <button onClick={addTodo} className="add-btn">
                     {editId !== null ? "Update" : "Add"}
+                </button>
+                <button onClick={clearAllTodos} className="delAll-btn">
+                    Delete All
                 </button>
 
             </div>
