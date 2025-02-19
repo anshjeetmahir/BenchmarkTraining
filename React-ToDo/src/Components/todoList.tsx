@@ -64,7 +64,7 @@ const TodoList = () => {
     };
 
     return (
-        <div >
+        <>
 
             <div className="list">
 
@@ -97,7 +97,7 @@ const TodoList = () => {
                 ))}
 
             </ul>
-        </div>
+        </>
     );
 };
 
