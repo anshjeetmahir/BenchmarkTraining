@@ -1,6 +1,6 @@
 # React Task Manager
 
- -Created a Task Manager to learn to use Hooks in React like:
+ *Created a Task Manager to learn to use Hooks in React like:
      -useState
      -useContext
      -createContext
