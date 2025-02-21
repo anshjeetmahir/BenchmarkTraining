@@ -7,6 +7,11 @@ interface ITask {
     completed: boolean;
 }
 
+type TaskAction =
+    | { type: "ADD_TASK"; value: string }
+    | { type: "REMOVE_TASK"; value: number }
+    | { type: "TOGGLE_TASK"; value: number };
+
 interface ITaskContextType {
     state: ITask[];
     addTask: (text: string) => void;
@@ -17,16 +22,16 @@ interface ITaskContextType {
 
 const TaskContext = createContext<ITaskContextType | undefined>(undefined);
 
-const taskReducer = (state: ITask[], action: { type: string; payload: any }): ITask[] => {
+const taskReducer = (state: ITask[], action: TaskAction): ITask[] => {
     switch (action.type) {
         case "ADD_TASK":
             const newId = state.length > 0 ? state[state.length - 1].id + 1 : 1;
-            return [...state, { id: newId, text: action.payload, completed: false }];
+            return [...state, { id: newId, text: action.value, completed: false }];
         case "REMOVE_TASK":
-            return state.filter(task => task.id !== action.payload);
+            return state.filter(task => task.id !== action.value);
         case "TOGGLE_TASK":
             return state.map(task =>
-                task.id === action.payload ? { ...task, completed: !task.completed } : task
+                task.id === action.value ? { ...task, completed: !task.completed } : task
             );
         default:
             return state;
@@ -40,12 +45,13 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const addTask = useCallback((text: string) => {
         if (text !== "") {
-            dispatch({ type: "ADD_TASK", payload: text });
+            dispatch({ type: "ADD_TASK", value: text });
         }
     }, []);
 
-    const removeTask = useCallback((id: number) => dispatch({ type: "REMOVE_TASK", payload: id }), []);
-    const toggleTask = useCallback((id: number) => dispatch({ type: "TOGGLE_TASK", payload: id }), []);
+    const removeTask = useCallback((id: number) => dispatch({ type: "REMOVE_TASK", value: id }), []);
+
+    const toggleTask = useCallback((id: number) => dispatch({ type: "TOGGLE_TASK", value: id }), []);
 
     return (
         <TaskContext.Provider value={{ state, addTask, removeTask, toggleTask, completedTaskCount }}>
