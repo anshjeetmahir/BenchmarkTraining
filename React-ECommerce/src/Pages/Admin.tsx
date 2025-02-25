@@ -25,6 +25,7 @@ const Admin = () => {
     });
 
     const addProductMutation = useMutation({
+        mutationKey: ["addProduct"],
         mutationFn: async () => {
             const response = await axios.post(`${PRODUCT_URL}`, productData);
             return response.data;
@@ -36,6 +37,7 @@ const Admin = () => {
     });
 
     const editProductMutation = useMutation({
+        mutationKey: ["editProduct"],
         mutationFn: async (updatedProduct: IProduct) => {
             const response = await axios.put(`${PRODUCT_URL}/${updatedProduct.id}`, updatedProduct);
             return response.data;
@@ -48,6 +50,7 @@ const Admin = () => {
     });
 
     const deleteProductMutation = useMutation({
+        mutationKey: ["deleteProduct"],
         mutationFn: async (id: number) => {
             await axios.delete(`${PRODUCT_URL}/${id}`);
         },
