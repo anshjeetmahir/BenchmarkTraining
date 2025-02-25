@@ -23,11 +23,11 @@ const ProductCard: React.FC<IProps> = ({ productId }) => {
         refetchOnWindowFocus: false,
     });
 
-    if (isLoading) return <p>Loading product...</p>;
-    if (error) return <p>Error loading product</p>;
 
     return (
         <div className="product-card">
+            {isLoading && <h1>Loading...</h1>}
+            {error && <p className="error-message">{error.message}</p>}
             <img src={product?.image} alt={product?.title} />
             <h3>{product?.title}</h3>
             <p>${product?.price}</p>

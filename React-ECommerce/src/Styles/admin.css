@@ -90,3 +90,8 @@
  .delete-btn-admin:hover {
      background: #c82333;
  }
+
+ .error-message {
+     color: red;
+     font-weight: bold;
+ }

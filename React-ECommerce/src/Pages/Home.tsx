@@ -31,12 +31,12 @@ const Home: React.FC = () => {
             ? products
             : products.filter((product: { category: string }) => product.category === selectedCategory);
 
-    if (isLoading) return <h1 className="loading">Loading...</h1>;
-
-    if (error) return <h1>{error.message}</h1>;
     return (
+
         <div className="home-container">
             <h1>Shop Now</h1>
+            {isLoading && <h1>Loading...</h1>}
+            {error && <p className="error-message">{error.message}</p>}
             <select onChange={(e) => setSelectedCategory(e.target.value)} value={selectedCategory} className="filter-container">
                 <option value="all">All Categories</option>
                 {categories.map((category) => (
