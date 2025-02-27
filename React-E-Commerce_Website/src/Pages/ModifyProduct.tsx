@@ -40,7 +40,7 @@ export default function ModifyProducts() {
         <div className="p-6">
             <div className="flex justify-between mb-4">
                 <h1 className="text-2xl font-bold">Modify Products</h1>
-                <Button onClick={() => navigate("/products/modify/add")}>Add Product</Button>
+                <Button onClick={() => navigate("/products/modify/add")} className="cursor-pointer">Add Product</Button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

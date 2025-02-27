@@ -18,19 +18,32 @@ export interface ICartItem extends IProduct {
     quantity: number;
 }
 
-export interface IState {
+
+export interface ModifyProductState {
+    products: IProduct[];
+    setProducts: (products: IProduct[]) => void;
+    addProduct: (product: IProduct) => void;
+    updateProduct: (product: IProduct) => void;
+    deleteProduct: (id: number) => void;
+    resetProducts: () => void;
+}
+
+
+export interface CartState {
     cart: ICartItem[];
+    addToCart: (product: ICartItem) => void;
+    removeFromCart: (id: number) => void;
+    increaseQuantity: (id: number) => void;
+    decreaseQuantity: (id: number) => void;
+    clearCart: () => void;
 }
 
-export type Action =
-    | { type: "ADD_TO_CART"; payload: ICartItem }
-    | { type: "REMOVE_FROM_CART"; payload: number };
-
-export interface IGlobalContext {
-    state: IState;
-    dispatch: React.Dispatch<Action>;
+export interface ProductCardProps {
+    product: IProduct;
 }
 
-export interface IChildren {
-    children: React.ReactNode;
+export interface ModifyCardProps {
+    product: IProduct;
+    onEdit: () => void;
+    onDelete: () => void;
 }

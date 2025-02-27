@@ -1,13 +1,9 @@
 
-import { IProduct } from "../Context/types";
+import { ModifyCardProps } from "../Context/types";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 
-interface ModifyCardProps {
-    product: IProduct;
-    onEdit: () => void;
-    onDelete: () => void;
-}
+
 
 export default function ModifyCard({ product, onEdit, onDelete }: ModifyCardProps) {
     return (
@@ -17,8 +13,8 @@ export default function ModifyCard({ product, onEdit, onDelete }: ModifyCardProp
                 <h2 className="text-lg text-center font-bold">{product.title}</h2>
                 <p className="text-green-600 text-center">${product.price}</p>
                 <div className="flex justify-between mt-4">
-                    <Button variant="default" onClick={onEdit}>Edit</Button>
-                    <Button variant="destructive" onClick={onDelete}>Delete</Button>
+                    <Button variant="default" onClick={onEdit} className="cursor-pointer">Edit</Button>
+                    <Button variant="destructive" onClick={onDelete} className="cursor-pointer">Delete</Button>
                 </div>
             </CardContent>
         </Card>

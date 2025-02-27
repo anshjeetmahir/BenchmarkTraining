@@ -36,8 +36,6 @@ export const getFilteredProducts = async (category?: string, limit?: number, sor
     if (limit) params.append("limit", limit.toString());
     if (sort) params.append("sort", sort);
 
-    console.log("Fetching from API:", `${url}?${params.toString()}`); // Debugging
-
     try {
         const response = await axios.get(`${url}?${params.toString()}`);
 

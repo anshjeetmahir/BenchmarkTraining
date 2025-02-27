@@ -98,7 +98,7 @@ export default function ChangeProduct() {
                         <Label>Description</Label>
                         <Input name="description" value={formData.description} onChange={handleChange} required />
                     </div>
-                    <Button type="submit">{isAdd ? "Add Product" : "Update Product"}</Button>
+                    <Button type="submit" className="cursor-pointer">{isAdd ? "Add Product" : "Update Product"}</Button>
                 </form>
             </DialogContent>
         </Dialog>

@@ -24,11 +24,21 @@ export default function Products() {
         setSearchParams(searchParams);
     };
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error fetching products</div>;
+    if (isLoading || error) {
+        return (
+            <div className="flex items-center justify-center h-screen w-screen">
+                <div className="text-center">
+                    {isLoading && <p className="text-2xl font-bold">Loading...</p>}
+                    {error && <p className="text-2xl font-bold text-red-600">Error fetching product.</p>}
+                </div>
+            </div>
+        );
+    }
+
 
     return (
         <div className="p-6">
+            <h1 className="text-center font-bold font-lg text-4xl mb-10">PRODUCTS</h1>
             <div className="flex gap-4 mb-4">
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
