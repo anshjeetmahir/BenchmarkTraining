@@ -18,7 +18,6 @@ const OrderDetail = () => {
     const orderId = Number(id);
     const { statuses, setStatus } = useOrderStore();
 
-    console.log("Order ID:", orderId); // Debugging
 
     const { data: order, error, isLoading } = useQuery({
         queryKey: ["order", orderId],

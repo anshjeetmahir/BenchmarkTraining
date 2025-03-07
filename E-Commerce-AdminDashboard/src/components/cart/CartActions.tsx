@@ -10,7 +10,7 @@ const CartActions = ({ setOpenDialog, deleteCartMutation }: CartActionsProps) =>
 
 
             <Button variant="contained" color="primary" onClick={() => setOpenDialog(true)}>
-                Add to Cart
+                Add Item to Cart
             </Button>
 
             <Button

@@ -47,7 +47,7 @@ const UserDetails = () => {
         }
     }, [user]);
 
-    if (isLoading) return <CircularProgress />;
+    if (isLoading) return <CircularProgress sx={{ display: "block", margin: "auto" }} />;
     if (!user) return <Typography>User not found.</Typography>;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

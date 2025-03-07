@@ -35,7 +35,7 @@ const BlogDetailPage = () => {
         }
     }, [fetchedComments, setComments]);
 
-    if (postLoading || commentsLoading) return <CircularProgress />;
+    if (postLoading || commentsLoading) return <CircularProgress sx={{ display: "block", margin: "auto" }} />;
     if (postError || commentsError) return <Typography color="error">Failed to load content.</Typography>;
 
     return (

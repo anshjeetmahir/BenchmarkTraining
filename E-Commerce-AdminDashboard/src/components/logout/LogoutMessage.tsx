@@ -2,7 +2,7 @@ import { Typography, Button } from "@mui/material";
 
 interface LogoutContentProps {
     isAuthenticated: boolean;
-    username: string | null; // Allow null values
+    username: string | null;
     handleLogout: () => void;
     navigateToLogin: () => void;
 }

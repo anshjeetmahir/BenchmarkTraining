@@ -22,7 +22,7 @@ const NotFoundContent: React.FC<NotFoundContentProps> = ({ handleGoHome }) => {
             <Typography variant="h5" component="h2" color="textSecondary">
                 Page not found
             </Typography>
-            <Typography variant="body1" color="textSecondary" paragraph>
+            <Typography variant="body1" color="textSecondary" >
                 The page you are looking for does not exist or has been moved.
             </Typography>
             <Button variant="contained" color="primary" onClick={handleGoHome}>

@@ -1,28 +1,14 @@
 
 import { Card, CardContent, Typography, CircularProgress, Alert } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { fetchUserById } from "@/api/userApi";
 
-interface IUser {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    address: {
-        street: string;
-        city: string;
-    };
-}
 
-const fetchUserDetails = async (userId: number) => {
-    const response = await axios.get(`https://dummyjson.com/users/${userId}`);
-    return response.data as IUser;
-};
 
 const UserInfo = ({ userId }: { userId: number }) => {
     const { data: user, error, isLoading } = useQuery({
         queryKey: ["user", userId],
-        queryFn: () => fetchUserDetails(userId),
+        queryFn: () => fetchUserById(userId),
         enabled: !!userId,
     });
 

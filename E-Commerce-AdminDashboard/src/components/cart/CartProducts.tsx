@@ -8,7 +8,7 @@ import { CartProductsProps } from "@/context/types";
 const CartProducts = ({ cart }: CartProductsProps) => {
     return (
         <Box sx={{ marginBottom: 2 }}>
-            {/* ✅ Cart Details */}
+
             <Divider sx={{ marginBottom: 2 }} />
 
             <Typography variant="h6" gutterBottom>Cart Details</Typography>
@@ -19,7 +19,7 @@ const CartProducts = ({ cart }: CartProductsProps) => {
             <Typography variant="body1"><strong>Total Quantity:</strong> {cart.totalQuantity}</Typography>
             <Divider sx={{ marginY: 2 }} />
 
-            {/* ✅ Products Section */}
+
             <Typography variant="h6" gutterBottom>Products in Cart</Typography>
             <Box>
 
